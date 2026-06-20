@@ -7,6 +7,7 @@ import HomeDashboard from "./HomeDashboard";
 import User from "./User";
 import TableDashboard from "../../component/Ui/TableDashboard/TableDashboard";
 import FormDashboard from "../../component/Ui/FormDashboard/FormDashboard";
+import ShopDashboard from "../../component/Dashboard/ShopDashboard/ShopDashboard";
 function Dashboard(){
     const [isDraft, setIsDraft] = useState(false);
     return(
@@ -24,6 +25,7 @@ function Dashboard(){
            <Route path="add" element = {<FormDashboard setIsDraft={setIsDraft}/>}/>
             </Route>
             {/* <Route path="/projects" element = {< Project />}/> */}
+            <Route path="shopD" element = {<ShopDashboard />} />
         </Routes>
         </main>
         </div>

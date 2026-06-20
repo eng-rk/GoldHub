@@ -6,8 +6,8 @@ function Sidebar({ isDraft }){
         {icons: "fa-chart-line", title: "Status", path: "/"},
         {icons: "fa-users", title: "User management", path: "/users"},
         // {icons: "fa-building", title: "Projects management", path: "/projects"},
-        {icons: "fa-building", title: "Developer management"},
-        {icons: "fa-globe", title: "CMS"},
+        {icons: "fa-shop", title: "Shop Owner"},
+        // {icons: "fa-globe", title: "CMS"},
         {icons: "fa-message", title: "Live Chat"}
     ]
     return(
