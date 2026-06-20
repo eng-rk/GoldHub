@@ -1,0 +1,74 @@
+name: Node.js CI
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  backend:
+    name: Backend CI
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v5
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install backend dependencies
+        working-directory: BackEnd
+        run: |
+          npm ci
+
+      - name: Run backend lint if available
+        working-directory: BackEnd
+        run: |
+          if npm run | grep -q "lint"; then npm run lint; else echo "No backend lint script configured."; fi
+
+      - name: Run backend tests if available
+        working-directory: BackEnd
+        run: |
+          if grep -q '"test"' package.json && ! npm pkg get scripts.test | grep -q 'Error:'; then npm test; else echo "No backend tests configured."; fi
+
+  frontend:
+    name: Frontend CI
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v5
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install frontend dependencies
+        working-directory: FrontEnd/GoldHub
+        run: |
+          npm ci
+
+      - name: Run frontend lint
+        working-directory: FrontEnd/GoldHub
+        run: |
+          npm run lint
+
+      - name: Build frontend
+        working-directory: FrontEnd/GoldHub
+        run: |
+          npm run build

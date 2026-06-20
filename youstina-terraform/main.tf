@@ -207,7 +207,7 @@ resource "aws_launch_template" "web" {
 
   metadata_options {
     http_endpoint               = "enabled"
-    http_tokens                 = "required"  # IMDSv2
+    http_tokens                 = "required" # IMDSv2
     http_put_response_hop_limit = 1
   }
 
@@ -237,10 +237,10 @@ resource "aws_launch_template" "web" {
 # Auto Scaling Group
 # ==============================================================================
 resource "aws_autoscaling_group" "web" {
-  name                = "alb-asg-group"
-  vpc_zone_identifier = [aws_subnet.public_1.id, aws_subnet.public_2.id]
-  target_group_arns   = [aws_lb_target_group.main.arn]
-  health_check_type   = "ELB"
+  name                      = "alb-asg-group"
+  vpc_zone_identifier       = [aws_subnet.public_1.id, aws_subnet.public_2.id]
+  target_group_arns         = [aws_lb_target_group.main.arn]
+  health_check_type         = "ELB"
   health_check_grace_period = 300
 
   min_size         = var.asg_min_size
