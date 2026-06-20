@@ -1,0 +1,51 @@
+# Example terraform.tfvars file
+# Copy this file to terraform.tfvars and update the values as needed
+# NOTE: terraform.tfvars is included in .gitignore and should not be committed to Git
+
+# AWS region for resource deployment
+# aws_region = "us-east-1"
+
+# Environment name for tagging
+# environment = "production"
+
+# VPC CIDR block
+# vpc_cidr = "10.20.0.0/16"
+
+# Public subnet 1 CIDR block
+# public_subnet_1_cidr = "10.20.1.0/24"
+
+# Public subnet 2 CIDR block
+# public_subnet_2_cidr = "10.20.2.0/24"
+
+# First Availability Zone (must be in your chosen region)
+# availability_zone_1 = "us-east-1a"
+
+# Second Availability Zone (must be in your chosen region)
+# availability_zone_2 = "us-east-1b"
+
+# EC2 instance type (t2.micro eligible for free tier)
+# instance_type = "t2.micro"
+
+# Minimum number of instances in Auto Scaling Group
+# asg_min_size = 2
+
+# Maximum number of instances in Auto Scaling Group
+# asg_max_size = 4
+
+# Desired number of instances in Auto Scaling Group
+# asg_desired_capacity = 2
+
+# Health check path for Target Group
+# health_check_path = "/index.html"
+
+# Health check interval in seconds
+# health_check_interval = 30
+
+# Health check timeout in seconds
+# health_check_timeout = 5
+
+# Number of consecutive health checks successes required
+# health_check_healthy_threshold = 3
+
+# Number of consecutive health check failures required
+# health_check_unhealthy_threshold = 3
