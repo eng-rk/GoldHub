@@ -55,7 +55,7 @@ output "launch_template_id" {
 
 output "launch_template_latest_version" {
   description = "Latest version of the launch template"
-  value       = aws_launch_template.web.latest_version_number
+  value       = aws_launch_template.web.latest_version
 }
 
 output "asg_name" {
